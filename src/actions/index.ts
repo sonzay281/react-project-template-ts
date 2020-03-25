@@ -1,0 +1,2 @@
+export const DELETE_VALUE = "DELETE_VALUE";
+export const VALUE_CHANGED = "VALUE_CHANGED";
