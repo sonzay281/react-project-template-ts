@@ -1,22 +1,20 @@
 import axios from "axios";
 
-import config from "config";
-
 export const http = axios.create({
-  baseURL: config.backend.url,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
-    "Content-Type": "application/json"
-  }
+    "Content-Type": "application/json",
+  },
 });
 
 http.interceptors.response.use(
-  response => {
+  (response) => {
     if (response?.data?.access_token) {
       window.localStorage.setItem("token", response.data.access_token);
     }
     return response;
   },
-  error => {
+  (error) => {
     const { response } = error;
     if (response?.status === 401) {
       window.localStorage.removeItem("token");
@@ -26,7 +24,7 @@ http.interceptors.response.use(
   }
 );
 
-http.interceptors.request.use(config => {
+http.interceptors.request.use((config) => {
   if (!!window.localStorage.getItem("token"))
     config.headers.Authorization = "Bearer " + localStorage.getItem("token");
   return config;

@@ -1,16 +1,24 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 import { Provider } from "react-redux";
+import { init } from "@sentry/browser";
 
 import store from "store";
 
 import "styles/css/index.css";
 import App from "views/landingPage/App";
 import * as serviceWorker from "./serviceWorker";
+import ErrorBoundary from "components/ErrorBoundary";
 
-ReactDOM.render(
+init({
+  dsn: `https://${process.env.REACT_APP_SENTRY_KEY}@sentry.io/${process.env.REACT_APP_SENTRY_PROJECT}`,
+});
+
+render(
   <Provider store={store}>
-    <App />
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
   </Provider>,
   document.getElementById("root")
 );
