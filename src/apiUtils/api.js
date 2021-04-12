@@ -3,8 +3,8 @@ import axios from "axios";
 export const http = axios.create({
   baseURL: process.env.REACT_APP_API_URL,
   headers: {
-    "Content-Type": "application/json",
-  },
+    "Content-Type": "application/json"
+  }
 });
 
 http.interceptors.response.use(
@@ -30,15 +30,12 @@ http.interceptors.request.use((config) => {
   return config;
 });
 
-export const del = (url: string) => http.delete(url);
+export const del = (url) => http.delete(url);
 
-export const get = ({ url }: { url: string }) => http.get(url);
+export const get = ({ url }) => http.get(url);
 
-export const put = ({ url, data }: { url: string; data: any }) =>
-  http.put(url, data);
+export const put = ({ url, data }) => http.put(url, data);
 
-export const post = ({ url, data }: { url: string; data: any }) =>
-  http.post(url, data);
+export const post = ({ url, data }) => http.post(url, data);
 
-export const patch = ({ url, data }: { url: string; data: any }) =>
-  http.patch(url, data);
+export const patch = ({ url, data }) => http.patch(url, data);

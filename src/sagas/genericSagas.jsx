@@ -2,7 +2,7 @@ import { put, call } from "redux-saga/effects";
 
 import { get, post, del, patch } from "apiUtils/api";
 
-export function* fetchData({ payload }: any) {
+export function* fetchData({ payload }) {
   try {
     const {
       data: { response }
@@ -13,7 +13,7 @@ export function* fetchData({ payload }: any) {
   }
 }
 
-export function* postData({ payload }: any) {
+export function* postData({ payload }) {
   try {
     const {
       data: { response }
@@ -24,7 +24,7 @@ export function* postData({ payload }: any) {
   }
 }
 
-export function* deleteData({ payload }: any) {
+export function* deleteData({ payload }) {
   try {
     const {
       data: { response }
@@ -35,7 +35,7 @@ export function* deleteData({ payload }: any) {
   }
 }
 
-export function* patchData({ payload }: any) {
+export function* patchData({ payload }) {
   try {
     const {
       data: { response }

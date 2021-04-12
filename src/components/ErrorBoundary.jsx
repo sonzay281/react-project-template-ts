@@ -6,11 +6,11 @@ import { withScope, captureException, showReportDialog } from "@sentry/browser";
  * This component catch, logs the error and send to sentry dashboard.
  */
 class ErrorBoundary extends Component {
-  constructor(props: any) {
+  constructor(props) {
     super(props);
     this.state = {
       eventId: null,
-      hasError: false,
+      hasError: false
     };
   }
 
@@ -18,7 +18,7 @@ class ErrorBoundary extends Component {
     return { hasError: true };
   }
 
-  componentDidCatch(error: any, errorInfo: any) {
+  componentDidCatch(error, errorInfo) {
     withScope((scope) => {
       scope.setExtras(errorInfo);
       const eventId = captureException(error);
@@ -27,7 +27,7 @@ class ErrorBoundary extends Component {
   }
 
   render() {
-    const { hasError, eventId }: any = this.state;
+    const { hasError, eventId } = this.state;
     if (hasError) {
       //some fancy fall back screen
       return (

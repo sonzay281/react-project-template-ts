@@ -1,16 +1,16 @@
 import { VALUE_CHANGED, DELETE_VALUE } from "actions";
 
-export const valueChanged = (field: string, value: any) => ({
+export const valueChanged = (field, value) => ({
   type: VALUE_CHANGED,
   payload: { field, value }
 });
 
-export const deleteValue = (field: string) => ({
+export const deleteValue = (field) => ({
   type: DELETE_VALUE,
   payload: { field }
 });
 
-export const createAction = (data: any) => ({
+export const createAction = (data) => ({
   /*
     type: CREATE,
     payload: {

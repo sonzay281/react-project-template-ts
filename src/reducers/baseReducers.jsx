@@ -3,7 +3,7 @@ import { VALUE_CHANGED, DELETE_VALUE } from "actions";
 
 const initialState = Immutable.fromJS({});
 
-const baseReducer = (state = initialState, action: any) => {
+const baseReducer = (state = initialState, action) => {
   switch (action.type) {
     case VALUE_CHANGED:
       return state.setIn(
@@ -16,8 +16,8 @@ const baseReducer = (state = initialState, action: any) => {
 
     /*With mutation example
     case ACTION:
-      return state.withMutations((s: any) => {
-        action.response.forEach((r: any) => s.setIn(['key1', 'key2', r.id], Immutable.fromJS(r)));
+      return state.withMutations((s) => {
+        action.response.forEach((r) => s.setIn(['key1', 'key2', r.id], Immutable.fromJS(r)));
       });
     */
 
