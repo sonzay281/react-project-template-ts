@@ -16,7 +16,7 @@
     "immutable": "^4.0.0-rc.12",
     "jwt-decode": "^2.2.0",
     "moment": "^2.24.0",
-    "node-sass": "^4.12.0",
+    "node-sass": "^7.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",
